@@ -21,7 +21,7 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["static/js/*.js", "static/css/*.css"],
+      "resources": ["static/js/*.js", "static/css/*.css", "icons/*.svg"],
       "matches": ["https://web.telegram.org/*"]
     }
   ]

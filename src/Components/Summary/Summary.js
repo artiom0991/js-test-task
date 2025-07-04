@@ -1,5 +1,5 @@
-import React from "react";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 const Container = styled.div`
   padding: 16px;
@@ -23,9 +23,10 @@ const Text = styled.p`
 `;
 
 export const Summary = () => {
+  const { t } = useTranslation();
   return (
     <Container>
-      <SummaryTitle>Резюме</SummaryTitle>
+      <SummaryTitle>{t("main.summary")}</SummaryTitle>
       <Text>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim

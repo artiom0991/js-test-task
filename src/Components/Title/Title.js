@@ -1,40 +1,59 @@
 import React from "react";
 import styled from "styled-components";
+import { Header } from "components/UI/Layout/Header";
+import { NavigationButton } from "components/UI/Layout/NavigationButton";
+import { Logo } from "components/UI/Layout/Logo";
+import { Show } from "components/UI/Show";
+import { WindowNavigation } from "components/UI/Layout/WindowNavigation";
+import { WindowDescription } from "components/UI/Layout/WindowDescription";
+import { TitleText } from "components/UI/Layout/TitleText";
 
-const Header = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #e5e7eb;
-`;
-
-const Logo = styled.div`
-  width: 32px;
-  height: 32px;
-  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 12px;
-  font-weight: bold;
-  color: white;
-  font-size: 18px;
-`;
-
-const TitleText = styled.h1`
-  margin: 0;
-  color: #111827;
-  font-size: 20px;
-  font-weight: 600;
-`;
-
-export const Title = () => {
+export const Title = ({
+  isOpen,
+  setIsOpen,
+  isMinimized,
+  setMinimized,
+  isSettingsOpen,
+  setSettingsOpen,
+}) => {
   return (
     <Header>
-      <Logo>G</Logo>
-      <TitleText>Grensa.AI</TitleText>
+      <WindowDescription>
+        <Logo>G</Logo>
+        <TitleText>Grensa.AI</TitleText>
+      </WindowDescription>
+      <WindowNavigation>
+        <NavigationButton
+          icon="settings.svg"
+          alt="Открыть настройки"
+          title="Настройки"
+          onClick={() => setSettingsOpen(true)}
+        />
+        <Show
+          when={isOpen}
+          fallback={
+            <NavigationButton
+              icon="maximize.svg"
+              alt="Развернуть окно"
+              title="Развернуть"
+              onClick={() => isMinimized(true)}
+            />
+          }
+        >
+          <NavigationButton
+            icon="minimize.svg"
+            alt="Свернуть окно"
+            title="Свернуть"
+            onClick={() => isMinimized(false)}
+          />
+        </Show>
+        <NavigationButton
+          icon="close.svg"
+          alt="Закрыть настройки"
+          title="Закрыть"
+          onClick={() => setIsOpen(false)}
+        />
+      </WindowNavigation>
     </Header>
   );
 };

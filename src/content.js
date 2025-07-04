@@ -1,6 +1,7 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import { App } from "./App";
+import "i18n";
+import { AppProvider } from "context/AppContext";
 
 function injectExtension() {
   if (document.getElementById("telegram-extension-root")) {
@@ -19,7 +20,11 @@ function injectExtension() {
   document.body.appendChild(extensionContainer);
 
   const root = ReactDOM.createRoot(extensionContainer);
-  root.render(React.createElement(App));
+  root.render(
+    <AppProvider>
+      <App />
+    </AppProvider>
+  );
 }
 
 if (document.readyState === "loading") {
@@ -27,3 +32,7 @@ if (document.readyState === "loading") {
 } else {
   injectExtension();
 }
+
+chrome.runtime.onMessage.addListener((message) => {
+  console.log("📩 content.js получил сообщение:", message);
+});

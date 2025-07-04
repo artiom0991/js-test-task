@@ -1,0 +1,23 @@
+{
+  "main": {
+    "title": "Main",
+    "buttons": {
+      "close": "Close",
+      "minimize": "Minimize",
+      "maximize": "Maximize",
+      "options": "Options"
+    },
+    "open": "Open",
+    "summary": "Summary"
+  },
+  "settings": {
+    "title": "Settings",
+    "buttons": {
+      "close": "Close"
+    },
+    "labels": {
+      "apiKey": "OpenAI API Key",
+      "language": "Select Language"
+    }
+  }
+}

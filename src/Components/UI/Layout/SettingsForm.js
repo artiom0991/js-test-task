@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
-import i18n from "i18next";
+import i18n from "i18n/i18n";
 import { useTranslation } from "react-i18next";
 import {
   SelectLanguage,
@@ -37,23 +37,24 @@ export const SettingsForm = () => {
   const [apiKey, setApiKey] = useState("");
 
   useEffect(() => {
-    const storedKey = localStorage.getItem("openai_api_key");
-    if (storedKey) setApiKey(storedKey);
-
-    const storedLang = localStorage.getItem("language");
-    if (storedLang) i18n.changeLanguage(storedLang);
+    chrome.storage.local.get(["openaiApiKey", "language"], (result) => {
+      if (result.openaiApiKey) setApiKey(result.openaiApiKey);
+      if (result.language) {
+        i18n.changeLanguage(result.language);
+      }
+    });
   }, []);
 
   const handleApiKeyChange = (e) => {
     const key = e.target.value;
     setApiKey(key);
-    localStorage.setItem("openai_api_key", key);
+    chrome.storage.local.set({ openaiApiKey: key });
   };
 
   const handleLangChange = (e) => {
     const lang = e.target.value;
     i18n.changeLanguage(lang);
-    localStorage.setItem("language", lang);
+    chrome.storage.local.set({ language: lang });
   };
 
   return (

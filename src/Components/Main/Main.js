@@ -10,13 +10,11 @@ import { WindowDescription } from "components/UI/Layout/WindowDescription";
 import { Show } from "components/UI/Show";
 import { TitleText } from "components/UI/Layout/TitleText";
 import { WindowNavigation } from "components/UI/Layout/WindowNavigation";
-
 import { useAppContext } from "context/AppContext";
 
 const MainContainer = styled.div`
   width: 400px;
   height: auto;
-  max-height: 500px;
   background: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 12px;

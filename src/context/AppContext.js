@@ -6,6 +6,7 @@ export const AppProvider = ({ children }) => {
   const [isMainOpen, setMainOpen] = useState(true);
   const [isMainMinimized, setMainMinimized] = useState(false);
   const [isSettingsOpen, setSettingsOpen] = useState(false);
+  const [getSummary, setSummary] = useState("");
 
   return (
     <AppContext.Provider
@@ -16,6 +17,8 @@ export const AppProvider = ({ children }) => {
         setMainMinimized,
         isSettingsOpen,
         setSettingsOpen,
+        getSummary,
+        setSummary,
       }}
     >
       {children}

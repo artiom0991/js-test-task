@@ -7,6 +7,8 @@ module.exports = {
       context: path.resolve(__dirname, "src/context"),
       assets: path.resolve(__dirname, "src/assets"),
       utils: path.resolve(__dirname, "src/utils"),
+      services: path.resolve(__dirname, "src/services"),
+      handlers: path.resolve(__dirname, "src/handlers"),
       i18n: path.resolve(__dirname, "src/i18n"),
     },
     configure: (webpackConfig) => {

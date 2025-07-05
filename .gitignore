@@ -129,3 +129,7 @@ src/config/api-keys.js
 # Development tools
 .vscode/settings.json
 .vscode/launch.json 
+
+# Мои заметки
+Задачи.md
+Заметки.md

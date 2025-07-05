@@ -1,5 +1,6 @@
-import React from "react";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
+import { useAppContext } from "context/AppContext";
 
 const Container = styled.div`
   padding: 16px;
@@ -23,14 +24,12 @@ const Text = styled.p`
 `;
 
 export const Summary = () => {
+  const { t } = useTranslation();
+  const { getSummary, setSummary } = useAppContext();
   return (
     <Container>
-      <SummaryTitle>Резюме</SummaryTitle>
-      <Text>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris.
-      </Text>
+      <SummaryTitle>{t("main.summary")}</SummaryTitle>
+      <Text>{getSummary}</Text>
     </Container>
   );
 };

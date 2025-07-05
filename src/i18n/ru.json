@@ -1,0 +1,23 @@
+{
+  "main": {
+    "title": "Главное",
+    "buttons": {
+      "close": "Закрыть",
+      "minimize": "Свернуть",
+      "maximize": "Развернуть",
+      "options": "Настройки"
+    },
+    "open": "Открыть",
+    "summary": "Резюме"
+  },
+  "settings": {
+    "title": "Настройки",
+    "buttons": {
+      "close": "Закрыть"
+    },
+    "labels": {
+      "apiKey": "Ключ OpenAI API",
+      "language": "Выберите язык"
+    }
+  }
+}
